@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: nginx/Dockerfile
+        ports:
+            - "8080:80"
+        volumes:
+            - ./appcode/public:/appcode
+        networks:
+            - php-network
+    phpfpm:
+        build:
+            context: .
+            dockerfile: phpfpm/Dockerfile
+        volumes:
+            - ./appcode/public:/appcode
+        networks:
+            - php-network
+
+networks:
+    php-network:
+        driver: bridge
