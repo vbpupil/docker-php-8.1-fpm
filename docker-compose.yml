@@ -11,6 +11,8 @@ services:
             - ./appcode/public:/appcode
         networks:
             - php-network
+        depends_on:
+            -   phpfpm
     phpfpm:
         build:
             context: .

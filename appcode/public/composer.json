@@ -1,0 +1,5 @@
+{
+    "require": {
+        "vbpupil/uk-postcode-validation": "^1.0"
+    }
+}
